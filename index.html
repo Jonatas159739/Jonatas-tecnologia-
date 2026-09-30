@@ -1,0 +1,504 @@
+Fechou 😎🔥 Aqui está o código completo, já montado para ficar parecido com a prévia que você aprovou, com os 3 produtos e os botões funcionando.
+Escrita
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jonatas Daniel - Ofertas</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #111;
+}
+
+/* CABEÇALHO */
+
+header {
+  background: #080d0b;
+  color: white;
+  text-align: center;
+  padding: 25px 12px 20px;
+  border-bottom: 4px solid #00ff66;
+}
+
+.nome {
+  font-size: 34px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 12px #00ff66;
+}
+
+.nome span {
+  color: #00ff66;
+}
+
+.decoracao {
+  color: #00ff66;
+  font-size: 28px;
+}
+
+.subtitulo {
+  font-size: 17px;
+  margin: 12px 0 20px;
+}
+
+/* CATEGORIAS */
+
+.categorias {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.categorias span {
+  margin: 0 8px;
+  color: #00ff66;
+}
+
+/* BOTÕES */
+
+.menu {
+  background: #111;
+  padding: 12px 5px;
+  text-align: center;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 15px 25px;
+  margin: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ofertas-btn {
+  background: #00df5b;
+  color: white;
+  box-shadow: 0 0 12px #00df5b;
+}
+
+.inicio-btn {
+  background: #111;
+  color: white;
+  border: 2px solid white;
+}
+
+/* BANNER */
+
+.banner {
+  width: 92%;
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 30px 20px;
+  border-radius: 15px;
+  background: linear-gradient(120deg, #050505, #003d1c, #050505);
+  color: white;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.banner h1 span {
+  color: #00ff66;
+  font-size: 42px;
+}
+
+.banner p {
+  font-size: 17px;
+}
+
+/* OFERTAS */
+
+#ofertas {
+  display: none;
+  padding: 10px;
+}
+
+.titulo-ofertas {
+  text-align: center;
+  font-size: 32px;
+  margin: 30px 0;
+}
+
+.titulo-ofertas span {
+  color: #00d957;
+}
+
+/* PRODUTOS */
+
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.produto {
+  background: white;
+  width: 90%;
+  max-width: 320px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.produto-imagem {
+  font-size: 85px;
+  margin: 10px;
+}
+
+.produto h2 {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.produto p {
+  color: #555;
+  min-height: 45px;
+}
+
+.preco {
+  background: #00c853;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.comprar {
+  width: 100%;
+  background: #111;
+  color: white;
+}
+
+.comprar:hover {
+  background: #00c853;
+}
+
+/* MENSAGEM */
+
+#mensagem {
+  display: none;
+  background: #111;
+  color: white;
+  width: 90%;
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+/* RODAPÉ */
+
+footer {
+  margin-top: 40px;
+  padding: 25px;
+  background: #080d0b;
+  color: white;
+  text-align: center;
+  border-top: 3px solid #00ff66;
+}
+
+.redes {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+footer span {
+  margin: 8px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- CABEÇALHO -->
+
+<header>
+
+  <div class="decoracao">
+    ✨ ── 👑 ── ✨
+  </div>
+
+  <div class="nome">
+    📱 <span>Jonatas Daniel</span> 💻
+  </div>
+
+  <div class="decoracao">
+    ✨ ─────── ✨
+  </div>
+
+  <div class="subtitulo">
+    Produtos, ofertas e tecnologia
+  </div>
+
+  <div class="categorias">
+    📱 Celulares
+    <span>|</span>
+    🎧 Fones
+    <span>|</span>
+    💻 Computadores
+  </div>
+
+</header>
+
+
+<!-- MENU -->
+
+<div class="menu">
+
+  <button class="ofertas-btn" onclick="mostrarOfertas()">
+    🔥 Ofertas
+  </button>
+
+  <button class="inicio-btn" onclick="inicio()">
+    🏠 Início
+  </button>
+
+</div>
+
+
+<!-- BANNER -->
+
+<div class="banner">
+
+  <h1>
+    As melhores
+    <br>
+    <span>ofertas</span>
+    <br>
+    para você!
+  </h1>
+
+  <p>
+    Qualidade, preço baixo e entrega segura!
+  </p>
+
+</div>
+
+
+<!-- PRODUTOS -->
+
+<section id="ofertas">
+
+  <h1 class="titulo-ofertas">
+    🔥 <span>Nossas Ofertas</span> 🔥
+  </h1>
+
+
+  <div class="produtos">
+
+
+    <!-- PRODUTO 1 -->
+
+    <div class="produto">
+
+      <div class="produto-imagem">
+        📱
+      </div>
+
+      <h2>
+        Smartphone
+      </h2>
+
+      <p>
+        Celular moderno para o seu dia a dia.
+      </p>
+
+      <div class="preco">
+        R$ 999,90
+      </div>
+
+      <button class="comprar"
+        onclick="comprar('Smartphone')">
+
+        🛒 Comprar
+
+      </button>
+
+    </div>
+
+
+    <!-- PRODUTO 2 -->
+
+    <div class="produto">
+
+      <div class="produto-imagem">
+        💻
+      </div>
+
+      <h2>
+        Computador
+      </h2>
+
+      <p>
+        Computador para estudos,
+        trabalho e diversão.
+      </p>
+
+      <div class="preco">
+        R$ 1.899,90
+      </div>
+
+      <button class="comprar"
+        onclick="comprar('Computador')">
+
+        🛒 Comprar
+
+      </button>
+
+    </div>
+
+
+    <!-- PRODUTO 3 -->
+
+    <div class="produto">
+
+      <div class="produto-imagem">
+        🎧
+      </div>
+
+      <h2>
+        Fone Bluetooth
+      </h2>
+
+      <p>
+        Fone sem fio para ouvir
+        suas músicas.
+      </p>
+
+      <div class="preco">
+        R$ 79,90
+      </div>
+
+      <button class="comprar"
+        onclick="comprar('Fone Bluetooth')">
+
+        🛒 Comprar
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- MENSAGEM DO BOTÃO COMPRAR -->
+
+<div id="mensagem"></div>
+
+
+<!-- RODAPÉ -->
+
+<footer>
+
+  <div class="redes">
+    <span>🟢</span>
+    <span>📸</span>
+    <span>🎵</span>
+    <span>▶️</span>
+  </div>
+
+  © 2026 Jonatas Daniel
+
+  <br>
+
+  Tecnologia e ofertas
+
+</footer>
+
+
+<script>
+
+/* MOSTRAR OFERTAS */
+
+function mostrarOfertas() {
+
+  document.getElementById("ofertas").style.display = "block";
+
+  document.getElementById("ofertas").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+
+/* VOLTAR AO INÍCIO */
+
+function inicio() {
+
+  document.getElementById("ofertas").style.display = "none";
+
+  document.getElementById("mensagem").style.display = "none";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* BOTÃO COMPRAR */
+
+function comprar(produto) {
+
+  var mensagem =
+    document.getElementById("mensagem");
+
+  mensagem.innerHTML =
+    "🛒 Você escolheu:<br><br>" +
+    "<strong>" + produto + "</strong>" +
+    "<br><br>" +
+    "Obrigado pelo interesse!";
+
+  mensagem.style.display = "block";
+
+  mensagem.scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+function comprar(produto) {
+  var numero = "5511951315202";
+
+  var mensagem = "Olá! Tenho interesse no produto: " + produto +
+                 ". Quero saber mais sobre a compra.";
+
+  var link = "https://wa.me/" + numero +
+             "?text=" + encodeURIComponent(mensagem);
+
+  window.location.href = link;
+}
+</script>
+
+
+</body>
+</html>
+
