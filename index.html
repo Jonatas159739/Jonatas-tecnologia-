@@ -1,504 +1,995 @@
-Fechou 😎🔥 Aqui está o código completo, já montado para ficar parecido com a prévia que você aprovou, com os 3 produtos e os botões funcionando.
-Escrita
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jonatas Daniel - Ofertas</title>
+<title>Jonatas Ofertas</title>
 
 <style>
-
-* {
-  box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  color: #111;
+html{
+    scroll-behavior:smooth;
 }
 
-/* CABEÇALHO */
-
-header {
-  background: #080d0b;
-  color: white;
-  text-align: center;
-  padding: 25px 12px 20px;
-  border-bottom: 4px solid #00ff66;
+body{
+    background:#080b14;
+    color:white;
 }
 
-.nome {
-  font-size: 34px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 12px #00ff66;
+header{
+    background:linear-gradient(135deg,#090d19,#151b2d);
+    padding:18px 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:2px solid #ffcc00;
 }
 
-.nome span {
-  color: #00ff66;
+.topo{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
 
-.decoracao {
-  color: #00ff66;
-  font-size: 28px;
+.logo{
+    font-size:27px;
+    font-weight:900;
+    color:#ffcc00;
+    text-shadow:0 0 12px #ff9900;
 }
 
-.subtitulo {
-  font-size: 17px;
-  margin: 12px 0 20px;
+.logo span{
+    color:white;
 }
 
-/* CATEGORIAS */
-
-.categorias {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
+nav{
+    display:flex;
+    gap:18px;
 }
 
-.categorias span {
-  margin: 0 8px;
-  color: #00ff66;
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-/* BOTÕES */
-
-.menu {
-  background: #111;
-  padding: 12px 5px;
-  text-align: center;
+nav a:hover{
+    color:#ffcc00;
 }
 
-button {
-  border: none;
-  border-radius: 12px;
-  padding: 15px 25px;
-  margin: 5px;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
+.hero{
+    min-height:520px;
+    padding:60px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle at 15% 20%,rgba(255,204,0,.20),transparent 25%),
+    radial-gradient(circle at 85% 70%,rgba(0,174,255,.18),transparent 28%),
+    linear-gradient(135deg,#090d19,#11182b);
+    position:relative;
+    overflow:hidden;
 }
 
-.ofertas-btn {
-  background: #00df5b;
-  color: white;
-  box-shadow: 0 0 12px #00df5b;
+.hero:before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border:3px solid rgba(255,204,0,.2);
+    border-radius:50%;
+    left:-100px;
+    top:50px;
 }
 
-.inicio-btn {
-  background: #111;
-  color: white;
-  border: 2px solid white;
+.hero:after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border:3px solid rgba(0,174,255,.2);
+    border-radius:50%;
+    right:-70px;
+    bottom:30px;
 }
 
-/* BANNER */
-
-.banner {
-  width: 92%;
-  max-width: 1000px;
-  margin: 25px auto;
-  padding: 30px 20px;
-  border-radius: 15px;
-  background: linear-gradient(120deg, #050505, #003d1c, #050505);
-  color: white;
-  text-align: left;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+.hero-content{
+    max-width:850px;
+    position:relative;
+    z-index:2;
 }
 
-.banner h1 {
-  margin: 0;
-  font-size: 32px;
+.coroa{
+    font-size:45px;
+    margin-bottom:5px;
 }
 
-.banner h1 span {
-  color: #00ff66;
-  font-size: 42px;
+.hero h1{
+    font-size:52px;
+    line-height:1.05;
+    color:#ffcc00;
+    text-shadow:0 0 18px rgba(255,153,0,.7);
 }
 
-.banner p {
-  font-size: 17px;
+.hero h1 span{
+    color:white;
 }
 
-/* OFERTAS */
-
-#ofertas {
-  display: none;
-  padding: 10px;
+.hero h2{
+    margin-top:18px;
+    font-size:27px;
 }
 
-.titulo-ofertas {
-  text-align: center;
-  font-size: 32px;
-  margin: 30px 0;
+.hero p{
+    margin:15px auto 25px;
+    max-width:650px;
+    color:#d5d9e5;
+    font-size:17px;
 }
 
-.titulo-ofertas span {
-  color: #00d957;
+.badge{
+    display:inline-block;
+    background:#ff3b30;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    transform:rotate(-3deg);
+    margin-bottom:20px;
+    box-shadow:0 0 18px rgba(255,59,48,.45);
 }
 
-/* PRODUTOS */
-
-.produtos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+.search-box{
+    max-width:650px;
+    margin:25px auto 0;
+    display:flex;
+    background:white;
+    border-radius:50px;
+    padding:6px;
+    box-shadow:0 0 25px rgba(255,204,0,.25);
 }
 
-.produto {
-  background: white;
-  width: 90%;
-  max-width: 320px;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  text-align: center;
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:15px 20px;
+    border-radius:50px;
+    font-size:16px;
 }
 
-.produto-imagem {
-  font-size: 85px;
-  margin: 10px;
+.search-box button{
+    border:0;
+    background:#ffcc00;
+    color:#111;
+    padding:0 25px;
+    border-radius:50px;
+    font-weight:900;
+    cursor:pointer;
 }
 
-.produto h2 {
-  font-size: 25px;
-  margin: 10px 0;
+.search-box button:hover{
+    background:#ff9900;
 }
 
-.produto p {
-  color: #555;
-  min-height: 45px;
+section{
+    padding:65px 20px;
 }
 
-.preco {
-  background: #00c853;
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
-  padding: 12px;
-  border-radius: 10px;
-  margin: 15px 0;
+.container{
+    max-width:1200px;
+    margin:auto;
 }
 
-.comprar {
-  width: 100%;
-  background: #111;
-  color: white;
+.titulo{
+    text-align:center;
+    margin-bottom:40px;
 }
 
-.comprar:hover {
-  background: #00c853;
+.titulo h2{
+    font-size:35px;
+    color:#ffcc00;
 }
 
-/* MENSAGEM */
-
-#mensagem {
-  display: none;
-  background: #111;
-  color: white;
-  width: 90%;
-  max-width: 500px;
-  margin: 25px auto;
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 18px;
+.titulo p{
+    margin-top:8px;
+    color:#aeb5c7;
 }
 
-/* RODAPÉ */
-
-footer {
-  margin-top: 40px;
-  padding: 25px;
-  background: #080d0b;
-  color: white;
-  text-align: center;
-  border-top: 3px solid #00ff66;
+.categorias{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:18px;
 }
 
-.redes {
-  font-size: 30px;
-  margin-bottom: 15px;
+.categoria{
+    background:#111728;
+    border:1px solid #252d43;
+    border-radius:22px;
+    padding:25px 10px;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    transition:.25s;
 }
 
-footer span {
-  margin: 8px;
+.categoria:hover{
+    transform:translateY(-7px);
+    border-color:#ffcc00;
+    box-shadow:0 10px 30px rgba(255,204,0,.18);
 }
 
+.categoria .icone{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.categoria strong{
+    display:block;
+}
+
+.produtos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.produto{
+    background:#111728;
+    border:1px solid #252d43;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    transition:.25s;
+}
+
+.produto:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
+    border-color:#ffcc00;
+}
+
+.selo{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#ff3b30;
+    padding:7px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:2;
+}
+
+.produto-img{
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#171e33,#090d18);
+    font-size:90px;
+}
+
+.produto-info{
+    padding:20px;
+}
+
+.produto-info h3{
+    font-size:19px;
+    margin-bottom:9px;
+}
+
+.estrelas{
+    color:#ffcc00;
+    margin-bottom:12px;
+}
+
+.preco{
+    color:#ffcc00;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.botoes{
+    display:flex;
+    gap:9px;
+}
+
+.botao{
+    flex:1;
+    padding:12px 8px;
+    border-radius:12px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.comprar{
+    background:#ffcc00;
+    color:#111;
+}
+
+.oferta{
+    background:#ff3b30;
+    color:white;
+}
+
+.botao:hover{
+    transform:scale(1.03);
+}
+
+.beneficios{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.beneficio{
+    background:#111728;
+    padding:28px 20px;
+    border-radius:20px;
+    text-align:center;
+    border:1px solid #252d43;
+}
+
+.beneficio .icone{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.whatsapp{
+    background:linear-gradient(135deg,#0b9f58,#19c968);
+    border-radius:25px;
+    padding:35px 20px;
+    text-align:center;
+    margin-top:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.whatsapp h2{
+    margin-bottom:10px;
+}
+
+.whatsapp a{
+    display:inline-block;
+    margin-top:18px;
+    background:white;
+    color:#087d45;
+    padding:14px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:900;
+}
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    background:#05070d;
+    color:#8d95a8;
+    border-top:1px solid #1c2233;
+}
+
+@media(max-width:700px){
+
+    nav{
+        gap:10px;
+        font-size:13px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .hero{
+        min-height:550px;
+    }
+
+    .hero h1{
+        font-size:39px;
+    }
+
+    .hero h2{
+        font-size:23px;
+    }
+
+    .search-box{
+        flex-direction:row;
+    }
+
+    .search-box button{
+        padding:0 17px;
+    }
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- CABEÇALHO -->
-
 <header>
+    <div class="topo">
 
-  <div class="decoracao">
-    ✨ ── 👑 ── ✨
-  </div>
+        <div class="logo">
+            👑 Jonatas <span>Ofertas</span>
+        </div>
 
-  <div class="nome">
-    📱 <span>Jonatas Daniel</span> 💻
-  </div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#ofertas">Ofertas</a>
+            <a href="#categorias">Categorias</a>
+            <a href="#contato">Contato</a>
+        </nav>
 
-  <div class="decoracao">
-    ✨ ─────── ✨
-  </div>
-
-  <div class="subtitulo">
-    Produtos, ofertas e tecnologia
-  </div>
-
-  <div class="categorias">
-    📱 Celulares
-    <span>|</span>
-    🎧 Fones
-    <span>|</span>
-    💻 Computadores
-  </div>
-
+    </div>
 </header>
 
+<main>
 
-<!-- MENU -->
+<section class="hero" id="inicio">
 
-<div class="menu">
+    <div class="hero-content">
 
-  <button class="ofertas-btn" onclick="mostrarOfertas()">
-    🔥 Ofertas
-  </button>
+        <div class="coroa">👑</div>
 
-  <button class="inicio-btn" onclick="inicio()">
-    🏠 Início
-  </button>
+        <div class="badge">
+            🔥 OFERTAS DO DIA 🔥
+        </div>
 
-</div>
+        <h1>
+            JONATAS <span>OFERTAS</span>
+        </h1>
 
+        <h2>
+            OFERTAS IMPERDÍVEIS
+        </h2>
 
-<!-- BANNER -->
+        <p>
+            Encontre produtos incríveis, compare ofertas e aproveite
+            as melhores oportunidades da Amazon.
+        </p>
 
-<div class="banner">
+        <div class="search-box">
 
-  <h1>
-    As melhores
-    <br>
-    <span>ofertas</span>
-    <br>
-    para você!
-  </h1>
+            <input
+                type="text"
+                id="buscaProduto"
+                placeholder="Digite qualquer produto..."
+                onkeydown="if(event.key==='Enter') pesquisar()"
+            >
 
-  <p>
-    Qualidade, preço baixo e entrega segura!
-  </p>
+            <button onclick="pesquisar()">
+                🔎 Buscar
+            </button>
 
-</div>
-
-
-<!-- PRODUTOS -->
-
-<section id="ofertas">
-
-  <h1 class="titulo-ofertas">
-    🔥 <span>Nossas Ofertas</span> 🔥
-  </h1>
-
-
-  <div class="produtos">
-
-
-    <!-- PRODUTO 1 -->
-
-    <div class="produto">
-
-      <div class="produto-imagem">
-        📱
-      </div>
-
-      <h2>
-        Smartphone
-      </h2>
-
-      <p>
-        Celular moderno para o seu dia a dia.
-      </p>
-
-      <div class="preco">
-        R$ 999,90
-      </div>
-
-      <button class="comprar"
-        onclick="comprar('Smartphone')">
-
-        🛒 Comprar
-
-      </button>
+        </div>
 
     </div>
-
-
-    <!-- PRODUTO 2 -->
-
-    <div class="produto">
-
-      <div class="produto-imagem">
-        💻
-      </div>
-
-      <h2>
-        Computador
-      </h2>
-
-      <p>
-        Computador para estudos,
-        trabalho e diversão.
-      </p>
-
-      <div class="preco">
-        R$ 1.899,90
-      </div>
-
-      <button class="comprar"
-        onclick="comprar('Computador')">
-
-        🛒 Comprar
-
-      </button>
-
-    </div>
-
-
-    <!-- PRODUTO 3 -->
-
-    <div class="produto">
-
-      <div class="produto-imagem">
-        🎧
-      </div>
-
-      <h2>
-        Fone Bluetooth
-      </h2>
-
-      <p>
-        Fone sem fio para ouvir
-        suas músicas.
-      </p>
-
-      <div class="preco">
-        R$ 79,90
-      </div>
-
-      <button class="comprar"
-        onclick="comprar('Fone Bluetooth')">
-
-        🛒 Comprar
-
-      </button>
-
-    </div>
-
-
-  </div>
 
 </section>
 
+<section id="categorias">
 
-<!-- MENSAGEM DO BOTÃO COMPRAR -->
+    <div class="container">
 
-<div id="mensagem"></div>
+        <div class="titulo">
 
+            <h2>
+                🔥 Encontre o que procura
+            </h2>
 
-<!-- RODAPÉ -->
+            <p>
+                Escolha uma categoria e veja os produtos na Amazon
+            </p>
+
+        </div>
+
+        <div class="categorias">
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=celular"
+                target="_blank"
+            >
+                <div class="icone">📱</div>
+                <strong>Celulares</strong>
+            </a>
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=fone+de+ouvido"
+                target="_blank"
+            >
+                <div class="icone">🎧</div>
+                <strong>Fones</strong>
+            </a>
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=notebook"
+                target="_blank"
+            >
+                <div class="icone">💻</div>
+                <strong>Notebooks</strong>
+            </a>
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=pc+gamer"
+                target="_blank"
+            >
+                <div class="icone">🖥️</div>
+                <strong>PC Gamer</strong>
+            </a>
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=mouse"
+                target="_blank"
+            >
+                <div class="icone">🖱️</div>
+                <strong>Mouse</strong>
+            </a>
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=eletronicos"
+                target="_blank"
+            >
+                <div class="icone">⚡</div>
+                <strong>Eletrônicos</strong>
+            </a>
+
+            <a
+                class="categoria"
+                href="https://www.amazon.com.br/s?k=ofertas"
+                target="_blank"
+            >
+                <div class="icone">🔥</div>
+                <strong>Ofertas</strong>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="ofertas">
+
+    <div class="container">
+
+        <div class="titulo">
+
+            <h2>
+                🛒 Ofertas em Destaque
+            </h2>
+
+            <p>
+                Confira alguns produtos selecionados
+            </p>
+
+        </div>
+
+        <div class="produtos">
+
+            <div class="produto">
+
+                <div class="selo">
+                    DESTAQUE
+                </div>
+
+                <div class="produto-img">
+                    📱
+                </div>
+
+                <div class="produto-info">
+
+                    <h3>
+                        Smartphone
+                    </h3>
+
+                    <div class="estrelas">
+                        ★★★★★
+                    </div>
+
+                    <div class="preco">
+                        Ver oferta
+                    </div>
+
+                    <div class="botoes">
+
+                        <a
+                            class="botao comprar"
+                            href="https://amzn.to/4rDtAg2"
+                            target="_blank"
+                        >
+                            Comprar
+                        </a>
+
+                        <a
+                            class="botao oferta"
+                            href="https://amzn.to/4rDtAg2"
+                            target="_blank"
+                        >
+                            Ver Oferta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="produto">
+
+                <div class="selo">
+                    OFERTA
+                </div>
+
+                <div class="produto-img">
+                    🎧
+                </div>
+
+                <div class="produto-info">
+
+                    <h3>
+                        Fone de Ouvido
+                    </h3>
+
+                    <div class="estrelas">
+                        ★★★★★
+                    </div>
+
+                    <div class="preco">
+                        Ver oferta
+                    </div>
+
+                    <div class="botoes">
+
+                        <a
+                            class="botao comprar"
+                            href="https://amzn.to/4dgi98i"
+                            target="_blank"
+                        >
+                            Comprar
+                        </a>
+
+                        <a
+                            class="botao oferta"
+                            href="https://amzn.to/4dgi98i"
+                            target="_blank"
+                        >
+                            Ver Oferta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="produto">
+
+                <div class="selo">
+                    OFERTA
+                </div>
+
+                <div class="produto-img">
+                    💻
+                </div>
+
+                <div class="produto-info">
+
+                    <h3>
+                        Notebook
+                    </h3>
+
+                    <div class="estrelas">
+                        ★★★★★
+                    </div>
+
+                    <div class="preco">
+                        Ver oferta
+                    </div>
+
+                    <div class="botoes">
+
+                        <a
+                            class="botao comprar"
+                            href="https://amzn.to/4e8DWiu"
+                            target="_blank"
+                        >
+                            Comprar
+                        </a>
+
+                        <a
+                            class="botao oferta"
+                            href="https://amzn.to/4e8DWiu"
+                            target="_blank"
+                        >
+                            Ver Oferta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="produto">
+
+                <div class="selo">
+                    DESTAQUE
+                </div>
+
+                <div class="produto-img">
+                    🖥️
+                </div>
+
+                <div class="produto-info">
+
+                    <h3>
+                        PC Gamer
+                    </h3>
+
+                    <div class="estrelas">
+                        ★★★★★
+                    </div>
+
+                    <div class="preco">
+                        Ver oferta
+                    </div>
+
+                    <div class="botoes">
+
+                        <a
+                            class="botao comprar"
+                            href="https://amzn.to/3W0XHlR"
+                            target="_blank"
+                        >
+                            Comprar
+                        </a>
+
+                        <a
+                            class="botao oferta"
+                            href="https://amzn.to/3W0XHlR"
+                            target="_blank"
+                        >
+                            Ver Oferta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="produto">
+
+                <div class="selo">
+                    OFERTA
+                </div>
+
+                <div class="produto-img">
+                    🖱️
+                </div>
+
+                <div class="produto-info">
+
+                    <h3>
+                        Mouse
+                    </h3>
+
+                    <div class="estrelas">
+                        ★★★★★
+                    </div>
+
+                    <div class="preco">
+                        Ver oferta
+                    </div>
+
+                    <div class="botoes">
+
+                        <a
+                            class="botao comprar"
+                            href="https://amzn.to/4rG5Yr7"
+                            target="_blank"
+                        >
+                            Comprar
+                        </a>
+
+                        <a
+                            class="botao oferta"
+                            href="https://amzn.to/4rG5Yr7"
+                            target="_blank"
+                        >
+                            Ver Oferta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="titulo">
+
+            <h2>
+                ⭐ Por que comprar pelo Jonatas Ofertas?
+            </h2>
+
+            <p>
+                Facilidade para encontrar boas oportunidades
+            </p>
+
+        </div>
+
+        <div class="beneficios">
+
+            <div class="beneficio">
+
+                <div class="icone">
+                    🔎
+                </div>
+
+                <h3>
+                    Busca fácil
+                </h3>
+
+                <p>
+                    Pesquise qualquer produto diretamente na Amazon.
+                </p>
+
+            </div>
+
+            <div class="beneficio">
+
+                <div class="icone">
+                    ⚡
+                </div>
+
+                <h3>
+                    Prático
+                </h3>
+
+                <p>
+                    Encontre ofertas de forma rápida e simples.
+                </p>
+
+            </div>
+
+            <div class="beneficio">
+
+                <div class="icone">
+                    🛒
+                </div>
+
+                <h3>
+                    Compra segura
+                </h3>
+
+                <p>
+                    Os produtos são direcionados para a Amazon.
+                </p>
+
+            </div>
+
+            <div class="beneficio">
+
+                <div class="icone">
+                    📱
+                </div>
+
+                <h3>
+                    Pelo celular
+                </h3>
+
+                <p>
+                    Site preparado para funcionar no celular.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contato">
+
+    <div class="container">
+
+        <div class="whatsapp">
+
+            <h2>
+                💬 Fale comigo pelo WhatsApp
+            </h2>
+
+            <p>
+                Quer saber mais sobre alguma oferta?
+            </p>
+
+            <a
+                href="https://wa.me/5511951315202?text=Ol%C3%A1!%20Vi%20seu%20site%20de%20ofertas%20e%20gostaria%20de%20saber%20mais."
+                target="_blank"
+            >
+                📲 Chamar no WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
 
 <footer>
 
-  <div class="redes">
-    <span>🟢</span>
-    <span>📸</span>
-    <span>🎵</span>
-    <span>▶️</span>
-  </div>
+    <p>
+        👑 Jonatas Ofertas
+    </p>
 
-  © 2026 Jonatas Daniel
+    <p>
+        Encontre ofertas e produtos na Amazon.
+    </p>
 
-  <br>
-
-  Tecnologia e ofertas
+    <p>
+        © 2026 Jonatas Ofertas - Todos os direitos reservados.
+    </p>
 
 </footer>
 
-
 <script>
 
-/* MOSTRAR OFERTAS */
+function pesquisar(){
 
-function mostrarOfertas() {
+    const campo = document.getElementById("buscaProduto");
 
-  document.getElementById("ofertas").style.display = "block";
+    const produto = campo.value.trim();
 
-  document.getElementById("ofertas").scrollIntoView({
-    behavior: "smooth"
-  });
+    if(produto === ""){
 
+        alert("Digite o nome de um produto para pesquisar.");
+
+        campo.focus();
+
+        return;
+    }
+
+    const pesquisa = encodeURIComponent(produto);
+
+    window.open(
+        "https://www.amazon.com.br/s?k=" + pesquisa,
+        "_blank"
+    );
 }
 
-
-/* VOLTAR AO INÍCIO */
-
-function inicio() {
-
-  document.getElementById("ofertas").style.display = "none";
-
-  document.getElementById("mensagem").style.display = "none";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-}
-
-
-/* BOTÃO COMPRAR */
-
-function comprar(produto) {
-
-  var mensagem =
-    document.getElementById("mensagem");
-
-  mensagem.innerHTML =
-    "🛒 Você escolheu:<br><br>" +
-    "<strong>" + produto + "</strong>" +
-    "<br><br>" +
-    "Obrigado pelo interesse!";
-
-  mensagem.style.display = "block";
-
-  mensagem.scrollIntoView({
-    behavior: "smooth"
-  });
-
-}
-function comprar(produto) {
-  var numero = "5511951315202";
-
-  var mensagem = "Olá! Tenho interesse no produto: " + produto +
-                 ". Quero saber mais sobre a compra.";
-
-  var link = "https://wa.me/" + numero +
-             "?text=" + encodeURIComponent(mensagem);
-
-  window.location.href = link;
-}
 </script>
-
 
 </body>
 </html>
-
+Claro. Aqui está o código inteiro, em um único bloco, sem nada a mais para você copiar:
+HTML
